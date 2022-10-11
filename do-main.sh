@@ -1,19 +1,19 @@
 #! /bin/bash
-KranulVer="419"
-branch="r2/s"
+KranulVer="44"
+branch="eas-test"
 CODENAME="X01BD"
 WithSpec="Y"
 PrivBuild="N"
 PureKernel="N"
-CUSKERNAME="" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
+CUSKERNAME="SkyWalker-EAS-BETA" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
 CUSKERLINK=""
 CUSBUILDDATE=""
 CUSSPEC=""
 CUSCLANGVER=""
 CUSLLDVER=""
 CUSMSGWORD=""
-TypeBuild="RELEASE"
-BuilderKernel="00000"
+TypeBuild="TEST"
+BuilderKernel="sdclang"
 
 if [ "$KranulVer" = "419" ];then
 CAFTAG="04300"
@@ -34,10 +34,11 @@ if [ "$PureKernel" == "N" ] && [ $TypeBuild = "RELEASE" ];then
 BuildAll
 else
 ResetBranch
+CompileKernel
 StockFreq
 CompileKernel
 SwitchDevice "M1"
+CompileKernel
 ResetBranch
-StockFreq
 CompileKernel
 fi;
