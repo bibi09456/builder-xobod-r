@@ -8,13 +8,13 @@ env:
       SDCLANGPASS: ${{ secrets.SDCLANGPASS }}
       GDRIVEKEYPASS: ${{ secrets.GDRIVEKEYPASS }}
       
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   kernel-build:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:jammy-20211029
+      image: ubuntu:latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup CI
