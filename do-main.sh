@@ -1,12 +1,12 @@
 #! /bin/bash
 KranulVer="44"
-branch="eas-test"
+branch="r7/hmp"
 CODENAME="X01BD"
 WithSpec="Y"
 PrivBuild="N"
 PureKernel="N"
-CUSKERNAME="SkyWalker-EAS-BETA" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
-CUSKERLINK=""
+CUSKERNAME="bibi094" # Add "DCKN" on ResetBranch if u don't want Kernel Name Changed again
+CUSKERLINK="https://github.com/bibi09456/android_kernel_asus_sdm660"
 CUSBUILDDATE=""
 CUSSPEC=""
 CUSCLANGVER=""
@@ -33,12 +33,8 @@ fi
 if [ "$PureKernel" == "N" ] && [ $TypeBuild = "RELEASE" ];then
 BuildAll
 else
-ResetBranch
-CompileKernel
-StockFreq
-CompileKernel
 SwitchDevice "M1"
-CompileKernel
 ResetBranch
+StockFreq
 CompileKernel
 fi;
