@@ -215,7 +215,12 @@ CompileKernel(){
 				CROSS_COMPILE_ARM32=$for32- \
 				CLANG_TRIPLE=aarch64-linux-gnu- \
 				HOSTCC=gcc \
-				HOSTCXX=g++ ${ClangMoreStrings}
+				HOSTCXX=g++ \
+				AR=llvm-ar \
+				NM=llvm-nm \
+				STRIP=llvm-strip \
+				OBJCOPY=llvm-objcopy \
+				OBJDUMP=llvm-objdump
 			)
 	elif [ "$BuilderKernel" == "neutron" ];then
 		MAKE+=(
